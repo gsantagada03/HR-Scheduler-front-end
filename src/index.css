@@ -9,4 +9,31 @@ body {
   background-position: center;
   width: 100vw;
   height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.login-card {
+  width: 300px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 20px;
+  min-height: 400px;
+}
+
+#login-title {
+  display: flex;
+  justify-content: center;
+}
+
+#login-button {
+  width: 250px;
+  margin-top: 20px; 
+  margin-left: 10px;
+}
+
+#password-change{
+  margin-left: 45px;
 }

@@ -37,3 +37,28 @@ body {
 #password-change{
   margin-left: 45px;
 }
+
+
+#admin-navbar{
+  background-color: transparent;
+  box-shadow: none;
+}
+
+
+#home-container{
+  background-image: url('./images/home-background.jpg');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  width: 100vw;
+  height: 100vh;
+}
+
+#admin-navbar button{
+  color: white;
+}
+
+#admin-navbar button:hover {
+  color: black; 
+  background-color: lightgray; 
+}

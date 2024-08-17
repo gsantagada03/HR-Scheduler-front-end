@@ -1,17 +1,18 @@
-import React from 'react';
+import React, { useState } from 'react';
 import AdminNavbar from './AdminNavbar';
+
 
 const HomeAdmin = () => {
     return (
-        <div id='home-container' style={{ height: "100vh", display: "flex", flexDirection: "column" }}>
-            <AdminNavbar />
-            <div id='title-description' style={{ display: "flex", flexDirection: "column", justifyContent: "center", alignItems: "center", flex: 1, textAlign: "center", marginBottom:"15vh"}}>
-                <h1 style={{ color: "white" }}>HR-Scheduler</h1>
-                <h2 style={{ color: "white", maxWidth: "80%" }}>
-                    Gestisci facilmente i tuoi team e le risorse umane con HR-Scheduler. Crea, monitora e organizza account per HR e dipendenti in modo efficiente e sicuro.
-                </h2>
+        <div id="home-container">
+            <h1 id='title-home'>HR-Scheduler</h1>
+            <hr id='home-line'/>
+            <AdminNavbar/>
+            <div id='img-background'>
+                <h1 id='image-title' class ="image-text">HR-Scheduler</h1>
+                <h2 class ="image-text">Gestisci facilmente i tuoi team e le risorse umane con HR-Scheduler. Crea, monitora e organizza account per HR e dipendenti in modo efficiente e sicuro</h2>
             </div>
-        </div>
+            </div>
     );
 }
 

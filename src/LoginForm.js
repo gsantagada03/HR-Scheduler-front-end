@@ -53,7 +53,7 @@ const LoginForm = () => {
 
     return (
         <div className="login-container">
-            <Card variant="outlined" className="login-card">
+            <Card variant="outlined" className="login-card" style={{borderRadius:"40px"}}>
                 <CardContent>
                     <h1 id="login-title">ACCEDI</h1>
                     {error && <Alert style={{ marginBottom: '10px' }} severity="error">{error}</Alert>}

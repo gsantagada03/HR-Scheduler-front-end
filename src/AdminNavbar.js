@@ -1,23 +1,30 @@
-import React from 'react';
-import AppBar from '@mui/material/AppBar';
-import Toolbar from '@mui/material/Toolbar';
-import Typography from '@mui/material/Typography';
-import Button from '@mui/material/Button';
-import SearchIcon from '@mui/icons-material/Search';
-import TextField from '@mui/material/TextField';
-import InputAdornment from '@mui/material/InputAdornment';
+import React, { useState } from 'react';
+
 
 const AdminNavbar = () => {
-  return (
-    <AppBar position="static" id="admin-navbar">
-      <Toolbar style={{ display: "flex", justifyContent: "flex-start"}}>
-        <Button>Home</Button>
-        <Button>Gestisci HR Manager</Button>
-        <Button>Modifica Password</Button>
-        <Button>Logout</Button>      
-      </Toolbar>
-    </AppBar>
-  );
-}
+    const [dropdownVisible, setDropdownVisible] = useState(false);
+
+    const toggleDropdown = () => {
+        setDropdownVisible(!dropdownVisible);
+    };
+
+    return (
+        <nav id="admin-navbar">
+            <button>HOME</button>
+            <div className="dropdown-container" onMouseEnter={toggleDropdown} onMouseLeave={toggleDropdown}>
+                <button>GESTISCI HR MANAGER</button>
+                {dropdownVisible && (
+                    <div className="dropdown-menu">
+                        <button>Aggiungi HR</button>
+                        <button>Visualizza HR</button>
+                        <button>Rimuovi HR</button>
+                    </div>
+                )}
+            </div>
+            <button>MODIFICA PASSWORD</button>
+            <button>LOGOUT</button>
+        </nav>
+    );
+};
 
 export default AdminNavbar;

@@ -11,7 +11,6 @@ const ChangePassword = () => {
     const [passwordError, setPasswordError] = useState('');
     const [confirmPasswordError, setConfirmPasswordError] = useState('');
 
-    useEffect(() => { document.title = "Cambia password | HR-Scheduler"; });
 
     const handleSubmit = (event) => {
         event.preventDefault();
@@ -22,7 +21,7 @@ const ChangePassword = () => {
             return;
         }
 
-        const payload = { password : password };
+        const payload = { password: password };
         fetch("http://localhost:8080/admin/change-password", {
             method: "PUT",
             headers: {

@@ -13,11 +13,6 @@ const LoginForm = () => {
     const[usernameError, setUsernameError] = useState('');
     const[passwordError, setPasswordError] = useState('');
 
-    useEffect(() => {
-        document.title = "Login | HR-Scheduler"; 
-    });
-
-
     const handleSubmit = (event) => {
         event.preventDefault();
     
@@ -42,7 +37,7 @@ const LoginForm = () => {
             if (data.redirect) {
                 window.location.href = data.redirect; // Reindirizza se è necessario cambiare la password
             } else {
-                window.location.href = "/home"; // Reindirizza alla home se non c'è un redirect specifico
+                window.location.href = "/home-admin"; // Reindirizza alla home se non c'è un redirect specifico
             }
         })
         .catch(error => {

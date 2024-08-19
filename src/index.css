@@ -43,14 +43,6 @@ body, html {
   margin-left: 45px;
 }
 
-.registration-HR-container {
-  background-image: url('./images/home-background.jpg');
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-position: center;
-  width: 100vw;
-  height: 100vh;
-}
 
 #card-container {
   display: flex;
@@ -108,6 +100,7 @@ body, html {
 .dropdown-menu button{
   margin-top: 10px;
   width: 150px;
+  margin-bottom: 5px;
 }
 
 
@@ -115,6 +108,8 @@ body, html {
   min-height: 100vh;
   display: flex;
   flex-direction: column;
+  background-color: #f7f7f7;
+
 }
 
 #img-background {
@@ -133,4 +128,46 @@ body, html {
   font-family: 'Montserrat', sans-serif;
   text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
 
+}
+
+#create-HR-container {
+  text-align: center;
+  background-color: #f7f7f7;
+  min-height: 100vh; 
+  display: flex;
+  flex-direction: column; 
+  padding: 20px; 
+}
+
+#create-HR-form{
+  margin-top: 50px ;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+  
+}
+
+#create-HR-title{
+  font-family: 'Montserrat', sans-serif;
+
+}
+
+#create-hr-card {
+  width: 80%;
+  margin-top: 5vh;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1); 
+  border-radius: 30px; 
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+}
+
+#avatar {
+  width: 100px;
+  height: 100px;
+  position: relative;
+  margin: auto;
+  margin-top: 20px;
 }

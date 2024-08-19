@@ -1,4 +1,6 @@
 import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
+
 
 
 const AdminNavbar = () => {
@@ -10,12 +12,16 @@ const AdminNavbar = () => {
 
     return (
         <nav id="admin-navbar">
-            <button>HOME</button>
+            <Link to="/home-admin">
+                <button>HOME</button>
+            </Link>
             <div className="dropdown-container" onMouseEnter={toggleDropdown} onMouseLeave={toggleDropdown}>
                 <button>GESTISCI HR MANAGER</button>
                 {dropdownVisible && (
                     <div className="dropdown-menu">
+                        <Link to = "/crea-HR">
                         <button>Aggiungi HR</button>
+                        </Link>
                         <button>Visualizza HR</button>
                         <button>Rimuovi HR</button>
                     </div>

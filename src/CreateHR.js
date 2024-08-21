@@ -25,6 +25,8 @@ const CreateHR = () => {
   const [previewImage, setPreviewImage] = useState("https://www.w3schools.com/howto/img_avatar.png");
   const [phoneExistsError, setPhoneExistsError] = useState("");
   const [usernameExistsError, setUsernameExistsError] = useState("");
+  const [emptyFieldsError, setEmptyFieldsError] = useState("");
+
 
   const handleFileChange = (e) => {
     const file = e.target.files[0];
@@ -38,8 +40,12 @@ const CreateHR = () => {
     e.preventDefault();
     const token = localStorage.getItem("token");
 
-    if (nameError || surnameError || usernameError || passwordError || phoneError) {
+
+    if (!name || !surname || !username || !password) {
+      setEmptyFieldsError("Tutti i campi obbligatori devono essere compilati");
       return;
+    } else {
+      setEmptyFieldsError("");
     }
 
     const formData = new FormData();
@@ -48,9 +54,8 @@ const CreateHR = () => {
     formData.append("username", username);
     formData.append("password", password);
     formData.append("phone", phone);
-    if (selectedFile) {
-      formData.append("image", selectedFile);
-    }
+    formData.append("image", selectedFile);
+
 
     fetch("http://localhost:8080/admin/create-HR", {
       method: "POST",
@@ -69,9 +74,13 @@ const CreateHR = () => {
         } else {
           if (data.usernameExistsError) {
             setUsernameExistsError("Username già esistente");
+          } else {
+            setUsernameExistsError("");
           }
           if (data.phoneExistsError) {
-            setPhoneExistsError("Numero già esistente");
+            setPhoneExistsError("Numero di telefono già esistente");
+          } else {
+            setPhoneExistsError("");
           }
         }
       })
@@ -87,13 +96,15 @@ const CreateHR = () => {
           <h2 id="create-HR-title">Crea HR account</h2>
           <div id="create-HR-form">
 
-            <div style={{ textAlign: 'center', marginTop: 20 }}>
+            <div >
               {usernameExistsError && (
-                <Alert severity="error">{usernameExistsError}</Alert>
+                <Alert severity="error" sx={{ display: "flex", justifyContent: "center" }}>{usernameExistsError}</Alert>
               )}
 
+              {emptyFieldsError && (<Alert severity="error" sx={{ marginTop: "20px", display: "flex", justifyContent: "center" }}>{emptyFieldsError}</Alert>)}
+
               {phoneExistsError && (
-                <Alert severity="error">{phoneExistsError}</Alert>
+                <Alert severity="error" sx={{ marginTop: "20px", display: "flex", justifyContent: "center" }}>{phoneExistsError}</Alert>
               )}
               <Avatar src={previewImage} alt="Profile Image" id="avatar" />
               <IconButton color="primary" aria-label="upload picture" component="label">

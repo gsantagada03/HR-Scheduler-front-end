@@ -4,6 +4,7 @@ import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import HomeAdmin from './HomeAdmin';
 import CreateHR from './CreateHR';
 import { useEffect } from 'react';
+import VisualizeAllHR from './VisualizeAllHR';
 
 function App() {
 
@@ -20,6 +21,8 @@ function App() {
           <Route path='/cambia-password' element={<ChangePassword />} />
           <Route path='/home-admin' element={<HomeAdmin/>} />
           <Route path='/crea-HR' element={<CreateHR/>} />
+          <Route path='/visualizza-HR-managers' element={<VisualizeAllHR/>} />
+
         </Routes>
       </div>
     </Router>

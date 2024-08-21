@@ -19,10 +19,12 @@ const AdminNavbar = () => {
                 <button>GESTISCI HR MANAGER</button>
                 {dropdownVisible && (
                     <div className="dropdown-menu">
-                        <Link to = "/crea-HR">
-                        <button>Aggiungi HR</button>
+                        <Link to="/crea-HR">
+                            <button>Aggiungi HR</button>
                         </Link>
-                        <button>Visualizza HR</button>
+                        <Link to="/visualizza-HR-managers">
+                            <button>Visualizza HR</button>
+                        </Link>
                         <button>Rimuovi HR</button>
                     </div>
                 )}

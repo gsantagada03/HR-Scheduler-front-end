@@ -1,5 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import AdminNavbar from './AdminNavbar';
+import Card from '@mui/material/Card';
+import CardContent from '@mui/material/CardContent';
 
 
 const VisualizeAllHR = () => {
@@ -16,7 +18,7 @@ const VisualizeAllHR = () => {
             .then(data => {
                 setHRs(data)
             })
-    },[])
+    }, [])
     return (
         <div id="home-container">
             <h1 id='title-home'>HR-Scheduler</h1>
@@ -24,12 +26,15 @@ const VisualizeAllHR = () => {
             <AdminNavbar />
             <div id='hr-list'>
                 {HRs.map((hr, index) => (
-                    <div key={index} className='hr-card'>
-                        <p>Name: {hr.name}</p>
-                        <p>Surname: {hr.surname}</p>
+                    <div id='visualize-HRs' key={index}>
+                                        <Card id = "hr-card">
+
+                       <img style={{width : "225px", height: "30vh"}} src={`data:image/${hr.imageType};base64,${hr.image}`} alt="HR" />
+                        <p>Nome: {hr.name}</p>
+                        <p>Cognome: {hr.surname}</p>
                         <p>Username: {hr.username}</p>
-                        <p>Phone: {hr.phone}</p>
-                        <p>Image: <img src={`http://localhost:8080/photos/${hr.image}`} alt="HR" /></p>
+                        <p>Numero di telefono: {hr.phone}</p>
+                        </Card>
                     </div>
                 ))}
             </div>

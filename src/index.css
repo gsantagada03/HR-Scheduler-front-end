@@ -1,4 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Lora:wght@400;700&family=Playfair+Display:wght@400;700&display=swap');
+
 
 
 body, html {
@@ -171,3 +173,14 @@ body, html {
   margin: auto;
   margin-top: 20px;
 }
+
+#hr-list{
+  display: flex;
+  gap: 50px;
+  flex-wrap: wrap;
+}
+ 
+#hr-card p {
+    font-family: 'Playfair Display', serif; 
+}
+

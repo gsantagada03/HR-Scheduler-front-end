@@ -28,6 +28,7 @@ const CreateHR = () => {
   const [emptyFieldsError, setEmptyFieldsError] = useState("");
 
 
+
   const handleFileChange = (e) => {
     const file = e.target.files[0];
     if (file) {
@@ -40,13 +41,37 @@ const CreateHR = () => {
     e.preventDefault();
     const token = localStorage.getItem("token");
 
-
     if (!name || !surname || !username || !password) {
       setEmptyFieldsError("Tutti i campi obbligatori devono essere compilati");
       return;
     } else {
       setEmptyFieldsError("");
     }
+
+    const usernameRegex = /^[A-Za-z][A-Za-z0-9_]{7,29}$/;
+    if (!usernameRegex.test(username)) {
+      setUsernameError("L'username deve iniziare con una lettera e avere tra 8 e 30 caratteri, con lettere, numeri o underscore.");
+      return;
+    } else {
+      setUsernameError("");
+    }
+
+    const passwordRegex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/;
+    if (!passwordRegex.test(password)) {
+      setPasswordError("La password deve contenere almeno 8 caratteri, includere almeno una lettera maiuscola, una lettera minuscola, un numero e un carattere speciale tra @$!%*?&")
+      return;
+    } else {
+      setPasswordError("");
+    }
+
+    const phoneRegex = /^(\+39)?\s?3\d{2}\s?\d{6,7}$/;
+    if (phone && !phoneRegex.test(phone)) {
+      setPhoneError("Inserisci un numero di telefono valido.");
+      return;
+    } else {
+      setPhoneError("");
+    }
+
 
     const formData = new FormData();
     formData.append("name", name);
@@ -55,7 +80,6 @@ const CreateHR = () => {
     formData.append("password", password);
     formData.append("phone", phone);
     formData.append("image", selectedFile);
-
 
     fetch("http://localhost:8080/admin/create-HR", {
       method: "POST",
@@ -70,7 +94,7 @@ const CreateHR = () => {
         setPhoneExistsError("");
 
         if (!data.usernameExistsError && !data.phoneExistsError) {
-          window.location.href = data.redirect;
+          window.location.href = "/visualizza-HR-managers?registered=true";
         } else {
           if (data.usernameExistsError) {
             setUsernameExistsError("Username già esistente");
@@ -83,8 +107,9 @@ const CreateHR = () => {
             setPhoneExistsError("");
           }
         }
-      })
+      });
   }
+
   return (
     <div id="create-HR-container">
       <h1 id='title-home'>HR-Scheduler</h1>
@@ -188,7 +213,7 @@ const CreateHR = () => {
                 if (value === "") {
                   setPasswordError("Inserisci la password");
                 } else if (!passwordRegex.test(value)) {
-                  setPasswordError("La password deve contenere almeno 8 caratteri, includendo una lettera maiuscola, una minuscola, un numero e un carattere speciale.");
+                  setPasswordError("La password deve contenere almeno 8 caratteri, includendo una lettera maiuscola, una minuscola, un numero e un carattere speciale @$!%*?&");
                 } else {
                   setPasswordError("");
                 }

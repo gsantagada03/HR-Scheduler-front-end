@@ -25,7 +25,6 @@ const AdminNavbar = () => {
                         <Link to="/visualizza-HR-managers">
                             <button>Visualizza HR</button>
                         </Link>
-                        <button>Rimuovi HR</button>
                     </div>
                 )}
             </div>

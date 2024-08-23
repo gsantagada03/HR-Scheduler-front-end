@@ -6,23 +6,24 @@ import CreateHR from './CreateHR';
 import { useEffect } from 'react';
 import VisualizeAllHR from './VisualizeAllHR';
 
+
+
 function App() {
 
-  useEffect(() =>{
+  useEffect(() => {
     document.title = "HR-Scheduler";
   }, [])
 
-  
+
   return (
     <Router>
       <div className="App">
         <Routes>
           <Route path='/' element={<LoginForm />} />
           <Route path='/cambia-password' element={<ChangePassword />} />
-          <Route path='/home-admin' element={<HomeAdmin/>} />
-          <Route path='/crea-HR' element={<CreateHR/>} />
-          <Route path='/visualizza-HR-managers' element={<VisualizeAllHR/>} />
-
+          <Route path='/home-admin' element={<HomeAdmin />} />
+          <Route path='/crea-HR' element={<CreateHR />} />
+          <Route path='/visualizza-HR-managers' element={<VisualizeAllHR />} />
         </Routes>
       </div>
     </Router>

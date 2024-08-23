@@ -178,9 +178,77 @@ body, html {
   display: flex;
   gap: 50px;
   flex-wrap: wrap;
+  margin-left: 5vh;
 }
  
 #hr-card p {
     font-family: 'Playfair Display', serif; 
 }
 
+#successful-registration{
+  background-color: #b2fab4;
+  width: 200px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 20px;
+  display: flex;
+  align-items: center;
+}
+
+#successful-elimination{
+  background-color: #b2fab4;
+  width: 200px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 20px;
+  display: flex;
+  align-items: center;
+}
+
+#delete-account-alert{
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 60vh;
+  background-color: #f8f1e1; /* Beige chiaro */
+  border: 1px solid black;
+}
+
+.no-scroll {
+  overflow: hidden;
+  position: fixed;
+  width: 100%;
+}
+
+
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5); 
+  z-index: 999; 
+  display: flex;
+  justify-content: center;
+}
+
+.alert-container {
+  margin: auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  background-color: #f8f1e1;
+  border: 1px solid black;
+  height: 100px;
+  position: relative;
+}
+
+.close-btn {
+  position: absolute;
+  top: 2px;
+  right: 0;
+  cursor: pointer;
+}
